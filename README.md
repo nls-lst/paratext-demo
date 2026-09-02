@@ -16,8 +16,8 @@ terminal settles you're ready.
 **On your own machine**, you need [uv](https://docs.astral.sh/uv/):
 
 ```bash
-git clone https://github.com/nls-lst/paratext-workshop
-cd paratext-workshop
+git clone https://github.com/nls-lst/paratext-demo
+cd paratext-demo
 uv sync
 ```
 

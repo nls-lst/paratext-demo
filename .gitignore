@@ -3,4 +3,3 @@ output/
 review/
 __pycache__/
 *.pyc
-uv.lock
