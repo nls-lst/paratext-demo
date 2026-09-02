@@ -1,0 +1,11 @@
+# paratext config for the workshop.
+#
+# The API key is NOT here — it comes from the PARATEXT_API_KEY environment
+# variable, which the Codespace injects from a repository secret.
+
+base-url = "https://openrouter.ai/api/v1"
+model    = "qwen/qwen3-vl-30b-a3b-instruct"
+
+[project.bpl-cards]
+source     = "data/cards"
+output     = "output/bpl-cards.jsonl"
