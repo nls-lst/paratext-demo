@@ -1,96 +1,84 @@
-# paratext workshop
+# paratext demo
 
-A worked example of [paratext](https://github.com/nls-lst/paratext): turning a
-box of scanned catalogue cards into structured metadata with a multimodal model,
-then reviewing what the model got wrong.
+50 catalogue cards, a multimodal model, and an hour to find out how good the
+output is. Cards are public domain — see [`data/README.md`](data/README.md).
 
-Everything here is public domain — 50 Boston Public Library rare-books catalogue
-cards. See [`data/README.md`](data/README.md).
+**Start:** green **Code** button → **Codespaces** → **Create codespace on main**.
+Wait for "Ready". Your API key is already set.
 
-## Getting set up
+<details>
+<summary>Running on your own machine instead</summary>
 
-**In a Codespace** (recommended): the green **Code** button → the
-**Codespaces** tab → **Create codespace on main**. It takes a couple of minutes
-to build; when the terminal prints "Ready", you are.
-
-> Not the `.` keyboard shortcut — that opens github.dev, a browser-only editor
-> with no container and no terminal, which cannot run any of this.
-
-**On your own machine**, you need [uv](https://docs.astral.sh/uv/):
+Needs [uv](https://docs.astral.sh/uv/) and an API key in `PARATEXT_API_KEY`:
 
 ```bash
-git clone https://github.com/nls-lst/paratext-demo
-cd paratext-demo
-uv sync
+git clone https://github.com/nls-lst/paratext-demo && cd paratext-demo && uv sync
 ```
+</details>
 
-You need an API key in `PARATEXT_API_KEY`. In a Codespace it is already there.
+---
 
-## 1. Look before you run
+## 1 · What is it about to do?
 
 ```bash
 uv run paratext inspect -p bpl-cards
 ```
 
-This prints the fields the model is asked for, the prompt it will be sent, and
-whether schema, prompt and view still agree. It describes what is **installed**,
-so if it disagrees with the files you're editing, the package needs reinstalling.
+Seven fields, and the prompt that asks for them. Read the prompt — it is
+`bpl_cards/prompt.md`, and it is the only thing you will change today.
 
-## 2. Run it
+## 2 · Run it
 
 ```bash
 uv run paratext run -p bpl-cards --limit 5
 ```
 
-Five cards, five model calls, about a minute. It writes
-`output/bpl-cards.jsonl` and packages a review round in `review/`.
+Five cards, about a minute.
 
-## 3. Look at what it did
+## 3 · Judge it
 
 ```bash
 uv run paratext review
 ```
 
-Opens the review UI on port 5050 — in a Codespace, VS Code offers to open it.
-Go through the five cards against the images. Some will be right. Look for:
+Open the forwarded port. Put a verdict on each of the five, against the image.
 
-- **Continuation cards.** Some cards end "(Continued on next card)". What did
-  the model put in `notes`? What *should* a record do here?
-- **Markup.** Watch for HTML creeping into the title of anything with a
-  superscript.
-- **Empty fields.** Did it leave `heading` null, or invent one?
+**This is the eval.** Not a benchmark score — five human judgements about
+whether this output is usable. Note *what kind* of wrong each error is:
 
-## 4. Fix the prompt
+- Did it read the card wrongly, or read it right and file it wrongly?
+- Is a field empty because the card is empty, or because the model gave up?
+- Would you have to check every record, or only the ones it flagged?
 
-This is the actual work. `bpl_cards/prompt.md` is deliberately thin — it names
-each field and stops. Add the rules you just found yourself wanting, then:
+## 4 · Fix the prompt
+
+Open `bpl_cards/prompt.md`. Write the rule you found yourself wanting in step 3.
+One rule at a time.
 
 ```bash
 uv run paratext run -p bpl-cards --limit 5
 ```
 
-The same command as before. A run normally resumes on sample id, so your five
-cards would already be in the output file and the model never called — this
-repo sets `re-extract = true` in `paratext.toml` so a changed prompt redoes
-them instead. On a collection where re-running costs real money, leave that off
-and paratext stops to ask.
+The prompt changed, so this is **round 2**. Reload the review UI: r1 and r2 sit
+side by side with the differences marked.
 
-Because the prompt changed, this is **round 2**. The review UI shows r1 and r2
-side by side and highlights what moved. That loop — run, review, edit the
-prompt, run again — is the whole method.
+## 5 · Did it get better?
 
-## 5. Export
+Judge round 2 the same way. Then ask the harder question: did your rule fix the
+thing you aimed at, and did it break anything that was already right?
 
-```bash
-uv run paratext export -p bpl-cards --format marc
-```
+Repeat 4 and 5 while there is time. Five cards is small enough to iterate and
+far too small to be sure — which is the last thing worth taking away.
 
-Approved records out as MARCXML (or `--format dc`, or `hf` for a Hugging Face
-dataset).
+---
 
-## Where to go next
+<details>
+<summary>Going further</summary>
 
-- `bpl_cards/schema.py` — add a field, and see `inspect` complain until the
+- `--limit 20` for a wider run.
+- `bpl_cards/schema.py` — add a field, and watch `inspect` complain until the
   prompt mentions it too.
-- The [paratext README](https://github.com/nls-lst/paratext) — `paratext new`
-  scaffolds this same structure for your own collection.
+- `uv run paratext export -p bpl-cards --format marc` — approved records out.
+- [paratext](https://github.com/nls-lst/paratext) — `paratext new` scaffolds
+  this same structure for your own collection.
+</details>
