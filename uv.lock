@@ -476,7 +476,7 @@ wheels = [
 
 [[package]]
 name = "paratext-cli"
-version = "0.2.1"
+version = "0.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "huggingface-hub" },
@@ -490,9 +490,9 @@ dependencies = [
     { name = "stamina" },
     { name = "tqdm" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/15/e8/801a87721c9979b5d92fbf841fe9f72216093814703bb7051aadfb7121f2/paratext_cli-0.2.1.tar.gz", hash = "sha256:ed2130b25f80ce5e12a09011685a1f4a28760b5e163913d7539e0658c57d5df4", size = 250172, upload-time = "2026-09-03T08:04:47.481Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/59/bc/e9ffedc26ddf50c572395e3246e37a7617fc97575ca17405d140fb017874/paratext_cli-0.2.2.tar.gz", hash = "sha256:f09ae6cf078cf3d512926fb08e252e8c2a3b84d5f4c0a367c9823fb70a3334b0", size = 252262, upload-time = "2026-09-03T08:25:48.662Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a3/78/a4f1c9f59f67f487eb711eeb3833965bd593d5c75db8636bdd94e78329ae/paratext_cli-0.2.1-py3-none-any.whl", hash = "sha256:5aed97478cf04e5a944ad024bbcc008a018a9ebf1b81b9b52d8891ea02d5df9a", size = 140795, upload-time = "2026-09-03T08:04:46.284Z" },
+    { url = "https://files.pythonhosted.org/packages/18/ec/f008a8197230ca2d3173597c92e25be77bd6bc839f1459b6b8617e2e0470/paratext_cli-0.2.2-py3-none-any.whl", hash = "sha256:392f283702fe18c5fc4fcd3e1e06f7fc20968233b678d75b6a2cc5d61bce63f6", size = 142334, upload-time = "2026-09-03T08:25:47.628Z" },
 ]
 
 [[package]]
@@ -509,7 +509,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "paratext-cli", specifier = ">=0.2.0" }]
+requires-dist = [{ name = "paratext-cli", specifier = ">=0.2.2" }]
 
 [package.metadata.requires-dev]
 dev = [{ name = "pytest", specifier = ">=8.0" }]
