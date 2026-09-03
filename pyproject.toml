@@ -4,9 +4,8 @@ version = "0.1.0"
 requires-python = ">=3.11"
 # The distribution is `paratext-cli`; the import package is `paratext`. Plain
 # `paratext` on PyPI is an unrelated project.
-# Needs >=0.2.0: 0.1.0 predates the fix that lets a global `paratext` see a
-# project installed in this directory's .venv.
-dependencies = ["paratext-cli>=0.2.0"]
+# Needs >=0.2.1 for the `re-extract` config key used in paratext.toml.
+dependencies = ["paratext-cli>=0.2.1"]
 
 [build-system]
 requires = ["hatchling"]

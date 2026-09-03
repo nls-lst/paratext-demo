@@ -17,15 +17,15 @@ wheels = [
 
 [[package]]
 name = "anyio"
-version = "4.14.2"
+version = "4.15.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "idna" },
-    { name = "typing-extensions", marker = "python_full_version < '3.13'" },
+    { name = "typing-extensions", marker = "python_full_version < '3.15'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/61/cc/a381afa6efea9f496eff839d4a6a1aed3bfafc7b3ab4b0d1b243a12573dd/anyio-4.14.2.tar.gz", hash = "sha256:cfa139f3ed1a23ee8f88a145ddb5ac7605b8bbfd8592baacd7ce3d8bb4313c7f", size = 260176, upload-time = "2026-07-12T20:29:07.082Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ea/9a/c15a60547004a3f3cea20296c934f827ddd7bdba225a2e7e9fcb5ec48c80/anyio-4.15.0.tar.gz", hash = "sha256:b5c620ed540725e2579c31b17bb995b3bf02c9281c9cace04c7d186380bab85e", size = 276504, upload-time = "2026-09-02T21:46:36.957Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/da/35/f2287558c17e29fafc8ef3daf819bb9834061cfa43bff8014f7df7f63bdc/anyio-4.14.2-py3-none-any.whl", hash = "sha256:9f505dda5ac9f0c8309b5e8bd445a8c2bf7246f3ce950121e45ea15bc41d1494", size = 125813, upload-time = "2026-07-12T20:29:05.763Z" },
+    { url = "https://files.pythonhosted.org/packages/21/a6/2b21ce5ebe4d8938a247c9b0dbb7271566ae559b01795c83ea4bb2660ed7/anyio-4.15.0-py3-none-any.whl", hash = "sha256:7ecd9937369ffce8bba0b5ccb9b3a9507b101b0ed50256aecfbab27e6c2acb99", size = 131908, upload-time = "2026-09-02T21:46:35.485Z" },
 ]
 
 [[package]]
@@ -476,7 +476,7 @@ wheels = [
 
 [[package]]
 name = "paratext-cli"
-version = "0.2.0"
+version = "0.2.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "huggingface-hub" },
@@ -490,9 +490,9 @@ dependencies = [
     { name = "stamina" },
     { name = "tqdm" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c8/e0/2b58a07f985a44fe447ff9406091b28fcecc001c51b5e82fecc8be0b9e36/paratext_cli-0.2.0.tar.gz", hash = "sha256:8ba0935facd222b90c88cc2477d3708642c592ff1caa775de95ddcba999471cf", size = 249911, upload-time = "2026-09-02T18:57:58.115Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/15/e8/801a87721c9979b5d92fbf841fe9f72216093814703bb7051aadfb7121f2/paratext_cli-0.2.1.tar.gz", hash = "sha256:ed2130b25f80ce5e12a09011685a1f4a28760b5e163913d7539e0658c57d5df4", size = 250172, upload-time = "2026-09-03T08:04:47.481Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/61/21/788ef9f4c94a16dadd1a22cc8927d91d1a6251e7ba88da86b5d6931d2933/paratext_cli-0.2.0-py3-none-any.whl", hash = "sha256:b7a9ca689909e287225c9a3616de6cae8f992edb83208809c4fac18d866066ae", size = 140512, upload-time = "2026-09-02T18:57:56.87Z" },
+    { url = "https://files.pythonhosted.org/packages/a3/78/a4f1c9f59f67f487eb711eeb3833965bd593d5c75db8636bdd94e78329ae/paratext_cli-0.2.1-py3-none-any.whl", hash = "sha256:5aed97478cf04e5a944ad024bbcc008a018a9ebf1b81b9b52d8891ea02d5df9a", size = 140795, upload-time = "2026-09-03T08:04:46.284Z" },
 ]
 
 [[package]]

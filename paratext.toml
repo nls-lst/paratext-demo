@@ -9,3 +9,7 @@ model    = "qwen/qwen3-vl-30b-a3b-instruct"
 [project.bpl-cards]
 source     = "data/cards"
 output     = "output/bpl-cards.jsonl"
+
+# Five cards is cheap to redo, so let a prompt edit re-run them instead of
+# stopping. Off by default in paratext, and rightly so for a real collection.
+re-extract = true

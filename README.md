@@ -9,9 +9,12 @@ cards. See [`data/README.md`](data/README.md).
 
 ## Getting set up
 
-**In a Codespace** (recommended): press `.` or use the green **Code** button →
-**Codespaces** → **Create codespace**. Everything installs itself; when the
-terminal settles you're ready.
+**In a Codespace** (recommended): the green **Code** button → the
+**Codespaces** tab → **Create codespace on main**. It takes a couple of minutes
+to build; when the terminal prints "Ready", you are.
+
+> Not the `.` keyboard shortcut — that opens github.dev, a browser-only editor
+> with no container and no terminal, which cannot run any of this.
 
 **On your own machine**, you need [uv](https://docs.astral.sh/uv/):
 
@@ -63,12 +66,14 @@ This is the actual work. `bpl_cards/prompt.md` is deliberately thin — it names
 each field and stops. Add the rules you just found yourself wanting, then:
 
 ```bash
-uv run paratext run -p bpl-cards --limit 5 --re-extract
+uv run paratext run -p bpl-cards --limit 5
 ```
 
-`--re-extract` matters: a run resumes on sample id, so without it your five
-cards are already in the output file and the model is never called. (paratext
-will stop and tell you this rather than pretending to work.)
+The same command as before. A run normally resumes on sample id, so your five
+cards would already be in the output file and the model never called — this
+repo sets `re-extract = true` in `paratext.toml` so a changed prompt redoes
+them instead. On a collection where re-running costs real money, leave that off
+and paratext stops to ask.
 
 Because the prompt changed, this is **round 2**. The review UI shows r1 and r2
 side by side and highlights what moved. That loop — run, review, edit the
